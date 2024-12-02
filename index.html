@@ -34,6 +34,7 @@
             color: var(--dark-blue);
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
         /*navbar*/
         header {
             background-color: var(--dark-blue);
@@ -47,7 +48,7 @@
             z-index: 1000;
         }
 
-         header nav a {
+        header nav a {
             color: var(--white);
             text-decoration: none;
             margin: 0 15px;
@@ -106,6 +107,7 @@
             opacity: 0.3;
             /* Dim the background image */
         }
+
         .hero-section::after {
             content: '';
             position: absolute;
@@ -113,45 +115,12 @@
             left: 20px;
             right: 20px;
             bottom: 20px;
-            border: 2px solid var(--white); /* Square border color */
-            pointer-events: none; /* Prevents the frame from interfering with clicks */
+            border: 2px solid var(--white);
+            /* Square border color */
+            pointer-events: none;
+            /* Prevents the frame from interfering with clicks */
         }
 
-
-        /* Add arrow */
-        .hero-arrow {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: var(--white);
-            color: var(--dark-blue);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .hero-arrow:hover {
-            background: var(--yellow);
-        }
-
-        /*.hero {
-            background-color: var(--yellow);
-            color: var(--dark-blue);
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-            */
 
         .applet-container {
             margin-top: 1rem;
@@ -176,7 +145,56 @@
         }
 
         /*About*/
-        .about {}
+        .about {
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            background-color: #03045e;
+        }
+
+        .about h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .about-cards {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card {
+            background: #023e8a;
+            color: whitesmoke;
+            padding: 20px;
+            width: 200px;
+            border-radius: 8px;
+            border: 1px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: #023e8a;
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ffd60a;
+        }
+        .card h3 {
+            font-size: xx-large;
+            text-align: center;
+        }
+
+        .card h2 {
+            color: #ffffff;
+            font-size: x-large;
+        }
+
+        .card p {
+            font-size: 1.0em;
+        }
+
 
         /*Mission section*/
         .mission-vision {
@@ -237,7 +255,13 @@
             text-align: center;
             margin-top: 30px;
         }
-
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
 
         /*footer*/
         .footer {
@@ -345,13 +369,6 @@
             background: #ffd60a;
         }
 
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
 
         @media (max-width: 768px) {
             .hero h1 {
@@ -386,32 +403,27 @@
     </div>
 
     <!-- Rest of the content -->
-     <header>
+    <header>
         <div class="">
             <img src="example.jpg" alt="" style="height: 50px; width: auto;">
             NBSC VIRTUAL TOUR
         </div>
-        
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#tour">Virtual Tour</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-     </header>
-  
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#tour">Virtual Tour</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
 
     <div class="hero-section">
-        <div class="hero-arrow">&lt;</div> <!-- Replace < with SVG if needed -->
-        <h2>Welcome To</h2>
-        <h1>Northern Bukidnon State College</h1>
+    <h1>Welcome to NBSC Virtual Tour</h1>
         <p>Creando futura, Transformationis Vitae, Ductae a Deo</p>
     </div>
 
-
     <!-- Existing Content -->
-
-
     <section class="section" id="tour">
         <h2>Virtual Tour</h2>
         <p>Discover the campus landmarks through interactive maps and 360-degree views.</p>
@@ -449,10 +461,50 @@
         <script src="applet.js"></script>
     </section>
     <!--About Section-->
-    <section class="section" id="about">
-        <h2>About the College</h2>
-        <p>Learn about the history, mission, and vision of Northern Bukidnon State College.</p>
-        <h3>History</h3>
+    <section class="about" id="about">
+        <h1>About the College</h1>
+        <h3>HISTORY</h3>
+        <div class="about-cards">
+            <div class="card">
+                <h2>January 2005</h2>
+                <p>The Northern Bukidnon Community College (NBCC) was established in Manolo Fortich, Bukidnon, laying
+                    the foundation for accessible education in the area.</p>
+            </div>
+            <div class="about-cards">
+                <div class="card">
+                    <h2>March 2005</h2>
+                    <p>Under Municipal Ordinance No. 368-2005, NBCC was officially authorized to begin operations and
+                        offer classes for Academic Year 2005-2006.</p>
+                </div>
+                <div class="about-cards">
+                    <div class="card">
+                        <h2>April 2019</h2>
+                        <p>Republic Act 11284 was signed, mandating the conversion of NBCC into Northern Bukidnon State
+                            College (NBSC). This marked a significant milestone, transitioning the institution into a
+                            state college.</p>
+                    </div>
+                    <div class="about-cards">
+                        <div class="card">
+                            <h2>March 2020</h2>
+                            <p>NBSC submitted the complete set of documents required for institutional recognition to
+                                the Commission on Higher Education (CHED) Office of Institutional Quality Assurance and
+                                Governance (OIQAG).</p>
+                        </div>
+                        <div class="about-cards">
+                            <div class="card">
+                                <h2>October 5, 2020</h2>
+                                <p>NBSC completed preparations for its conversion into a state college under Republic
+                                    Act 11284.</p>
+                            </div>
+                            <div class="about-cards">
+                                <div class="card">
+                                    <h2>October 7, 2020</h2>
+                                    <p>CHED en banc approved the conversion of NBCC to NBSC, officially recognizing the
+                                        institution as a state college.</p>
+                                </div>
+
+                            </div>
+
     </section>
 
     <!--Mission Vision Section-->
