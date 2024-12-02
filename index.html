@@ -34,22 +34,20 @@
             color: var(--dark-blue);
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-
+        /*navbar*/
         header {
             background-color: var(--dark-blue);
             color: var(--white);
             padding: 20px;
             text-align: center;
-        }
-
-        nav {
-            background-color: var(--blue);
             display: flex;
-            justify-content: center;
-            padding: 10px;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        nav a {
+         header nav a {
             color: var(--white);
             text-decoration: none;
             margin: 0 15px;
@@ -60,8 +58,89 @@
             color: var(--yellow);
         }
 
-        /*Home section*/
-        .hero {
+        .hero-section {
+            background: linear-gradient(45deg, var(--blue), var(--dark-blue));
+            color: var(--white);
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .hero-section button {
+            background: var(--yellow);
+            color: var(--dark-blue);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero-section button:hover {
+            background: darkorange;
+        }
+
+        /* Add background image */
+        .hero-section::before {
+            content: '';
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            /* Replace with your image URL */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            /* Dim the background image */
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--white); /* Square border color */
+            pointer-events: none; /* Prevents the frame from interfering with clicks */
+        }
+
+
+        /* Add arrow */
+        .hero-arrow {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            color: var(--dark-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero-arrow:hover {
+            background: var(--yellow);
+        }
+
+        /*.hero {
             background-color: var(--yellow);
             color: var(--dark-blue);
             text-align: center;
@@ -72,6 +151,7 @@
             margin: 0;
             font-size: 2.5em;
         }
+            */
 
         .applet-container {
             margin-top: 1rem;
@@ -292,20 +372,45 @@
 
 <body>
 
+    <!-- Get Started Section -->
+    <div id="get-started-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark-blue); color: var(--white); display: flex; justify-content: center; align-items: center; z-index: 9999;">
+        <div style="text-align: center;">
+            <h1>Welcome to the Virtual Tour Website</h1>
+            <p>Explore Northern Bukidnon State College from the comfort of your home.</p>
+            <button onclick="hideGetStarted()"
+                style="padding: 10px 20px; background: var(--yellow); color: var(--dark-blue); border: none; cursor: pointer; border-radius: 10px; font-size: 1.2em;">
+                Get Started
+            </button>
+        </div>
+    </div>
+
+    <!-- Rest of the content -->
+     <header>
+        <div class="">
+            <img src="example.jpg" alt="" style="height: 50px; width: auto;">
+            NBSC VIRTUAL TOUR
+        </div>
+        
     <nav>
         <a href="#home">Home</a>
         <a href="#tour">Virtual Tour</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
-    <header>
-        <h1>Welcome to Northern Bukidnon State College Virtual Tour</h1>
-    </header>
+     </header>
+  
 
-    <section class="hero">
-        <h1>Explore the Campus Virtually</h1>
-        <p>Take a journey through the beautiful Northern Bukidnon State College from the comfort of your home.</p>
-    </section>
+    <div class="hero-section">
+        <div class="hero-arrow">&lt;</div> <!-- Replace < with SVG if needed -->
+        <h2>Welcome To</h2>
+        <h1>Northern Bukidnon State College</h1>
+        <p>Creando futura, Transformationis Vitae, Ductae a Deo</p>
+    </div>
+
+
+    <!-- Existing Content -->
+
 
     <section class="section" id="tour">
         <h2>Virtual Tour</h2>
@@ -401,6 +506,14 @@
     <footer>
         <p>&copy; 2024 Northern Bukidnon State College. All Rights Reserved.</p>
     </footer>
+    <script>
+        function hideGetStarted() {
+            const overlay = document.getElementById('get-started-overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+
+</body>
 
 </body>
 
