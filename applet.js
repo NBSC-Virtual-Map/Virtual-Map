@@ -12,9 +12,9 @@ class LeafletMap {
         }).addTo(this.map);
     }
 
-    addMarker(lat, lng, message) {
+    addMarker(lat, lng, popupContent) {
         const marker = L.marker([lat, lng]).addTo(this.map);
-        marker.bindPopup(message);
+        marker.bindPopup(popupContent);
     }
 
     loadMarkersFromJson(url) {
@@ -22,17 +22,28 @@ class LeafletMap {
             .then(response => response.json())
             .then(data => {
                 data.forEach(marker => {
-                    this.addMarker(marker.latitude, marker.longitude, marker.message);
+                    const popupContent = this.createPopupContent(marker);
+                    this.addMarker(marker.latitude, marker.longitude, popupContent);
                 });
             })
             .catch(error => console.error('Error loading markers:', error));
     }
-}
 
+    createPopupContent(marker) {
+        return `
+            <div>
+                <img src="${marker.imageUrl}" alt="Marker Image" style="width:100px;height:auto;margin-bottom:5px;">
+                <p>${marker.text}</p>
+                <button onclick="alert('Button clicked for marker: ${marker.text}')">Click Me</button>
+            </div>
+        `;
+    }
+}
 
 const myMap = new LeafletMap('map', [8.360004, 124.868419], 18);
 
 myMap.loadMarkersFromJson('map.json');
+
 
 /*// Panorama setup for campus virtual tour
 function initializePanorama() {

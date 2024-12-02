@@ -2,32 +2,38 @@
     {
         "latitude": 8.359582,
         "longitude":124.869151,
-        "message": "CSS Building"
+        "imageUrl": "./images/NBSC Court .jpg",
+        "text": "CSS Building"
     },
     {
         "latitude": 8.359210,
         "longitude": 124.869083,
-        "message": "GEC Building"
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Another marker"
     },
     {
         "latitude": 8.359899,
         "longitude": 124.869266,
-        "message": "TEP Building"
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Another marker"
     },
     {
         "latitude": 8.359159,
         "longitude": 124.868581,
-        "message": "BSBA Building"
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Another marker"
     },
     {
         "latitude": 8.359286,
         "longitude": 124.867861,
-        "message": "NBSC Admin Building"
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Another marker"
     },
     {
         "latitude": 8.360063,
         "longitude": 124.868901,
-        "message": "NBSC Covered Court"
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Another marker"
     }
     
 ]
