@@ -2,7 +2,7 @@
     {
         "latitude": 8.359582,
         "longitude":124.869151,
-        "imageUrl": " ",
+        "imageUrl": "https://example.com/another-image.jpg",
         "text": "CSS Building"
     },
     {
@@ -27,21 +27,13 @@
         "latitude": 8.359286,
         "longitude": 124.867861,
         "imageUrl": "https://example.com/another-image.jpg",
-<<<<<<< HEAD
-        "text": "NBSC Admin Building"
-=======
-        "text": "NBSC ADMIN Building"
->>>>>>> 279221eb8e569952946e18d3af02f93f48ad8291
+        "text": "NBSC AdminBuilding"
     },
     {
         "latitude": 8.360063,
         "longitude": 124.868901,
         "imageUrl": "./images/NBSC Court .jpg",
-<<<<<<< HEAD
-        "text": "NBSC Covered Court"
-=======
-        "text": "NBSC Court"
->>>>>>> 279221eb8e569952946e18d3af02f93f48ad8291
+        "text": "NBSC CoveredCourt"
     }
     
 ]
