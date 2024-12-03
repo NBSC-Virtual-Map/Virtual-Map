@@ -3,7 +3,7 @@
         "latitude": 8.359582,
         "longitude":124.869151,
         "imageUrl": "https://example.com/another-image.jpg",
-        "text": "CSS Building"
+        "text": "IT Department"
     },
     {
         "latitude": 8.359210,
@@ -15,7 +15,7 @@
         "latitude": 8.359899,
         "longitude": 124.869266,
         "imageUrl": "https://example.com/another-image.jpg",
-        "text": "TEP Building"
+        "text": "TEP Department"
     },
     {
         "latitude": 8.359159,
@@ -27,13 +27,57 @@
         "latitude": 8.359286,
         "longitude": 124.867861,
         "imageUrl": "https://example.com/another-image.jpg",
-        "text": "NBSC AdminBuilding"
+        "text": "NBSC Library"
     },
     {
         "latitude": 8.360063,
         "longitude": 124.868901,
         "imageUrl": "./images/NBSC Court .jpg",
-        "text": "NBSC CoveredCourt"
+        "text": "NBSC Covered Court"
+    },
+    
+    {
+        "latitude": 8.360281,
+        "longitude": 124.867519,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "Student Center Building"
+    },
+
+    {
+        "latitude": 8.359180,
+        "longitude": 124.868211,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "NBSC Clinic"
+    },
+    
+    {
+        "latitude": 8.359180,
+        "longitude": 124.868211,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "NBSC Clinic"
+    },
+    
+    {
+        "latitude": 8.361224,
+        "longitude": 124.867628,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "NBSC Guard House"
+    },
+    
+    
+    {
+        "latitude": 8.361224,
+        "longitude": 124.867628,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "NBSC Guard House"
+    },
+    
+    
+    {
+        "latitude": 8.360764,
+        "longitude": 124.869401,
+        "imageUrl": "https://example.com/another-image.jpg",
+        "text": "NBSC Cashier Office"
     }
     
 ]
