@@ -104,6 +104,27 @@ const myMap = new LeafletMap('map', [8.360004, 124.868419], 18);
 
 myMap.loadMarkersFromJson('map.json');
 
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+};
+
+
 
 /*// Panorama setup for campus virtual tour
 function initializePanorama() {

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Tour</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+#virtual-tour-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+#panorama {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#panorama img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.hotspot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+#controls button {
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#info-box {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  display: none;
+  text-align: center;
+}
+
+</style>
+<body>
+  <div id="virtual-tour-container">
+    <div id="panorama">
+      <img src="images/NBSC Court .jpg" alt="Virtual Tour">
+      <div class="hotspot" style="top: 40%; left: 60%;" onclick="showInfo('Welcome to the main hall!')"></div>
+      <div class="hotspot" style="top: 70%; left: 30%;" onclick="showInfo('Explore the dining area.')"></div>
+    </div>
+    <div id="controls">
+      <button onclick="move('left')">←</button>
+      <button onclick="move('right')">→</button>
+      <button onclick="move('up')">↑</button>
+      <button onclick="move('down')">↓</button>
+      <button onclick="zoomIn()">Zoom In</button>
+      <button onclick="zoomOut()">Zoom Out</button>
+    </div>
+    <div id="info-box"></div>
+  </div>
+  <script>
+
+const panorama = document.querySelector('#panorama img');
+let scale = 1;
+let translateX = 0;
+let translateY = 0;
+
+function move(direction) {
+  const step = 5;
+  switch (direction) {
+    case 'left':
+      translateX -= step;
+      break;
+    case 'right':
+      translateX += step;
+      break;
+    case 'up':
+      translateY -= step;
+      break;
+    case 'down':
+      translateY += step;
+      break;
+  }
+  updateTransform();
+}
+
+function zoomIn() {
+  scale = Math.min(scale + 0.1, 2); // Limit zoom-in
+  updateTransform();
+}
+
+function zoomOut() {
+  scale = Math.max(scale - 0.1, 1); // Limit zoom-out
+  updateTransform();
+}
+
+function updateTransform() {
+  panorama.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
+
+function showInfo(message) {
+  const infoBox = document.querySelector('#info-box');
+  infoBox.textContent = message;
+  infoBox.style.display = 'block';
+  setTimeout(() => {
+    infoBox.style.display = 'none';
+  }, 3000);
+}
+
+  </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Tour with Modal</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Button to Open Modal */
+    button {
+      padding: 10px 15px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px;
+    }
+
+    /* Virtual Tour Container Styles */
+    #virtual-tour-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    #panorama {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #panorama img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    #controls button {
+      padding: 10px 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    #info-box {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      display: none;
+      text-align: center;
+    }
+
+    /* Modal Styles */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-content {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to Open Modal -->
+  <button onclick="openModal()">Open Virtual Tour</button>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-content">
+      <button id="close-modal" onclick="closeModal()">Close</button>
+      <div id="virtual-tour-container">
+        <div id="panorama">
+          <img src="images/NBSC Court .jpg" alt="Virtual Tour">
+          <div class="hotspot" style="top: 40%; left: 60%;" onclick="showInfo('Welcome to the main hall!')"></div>
+          <div class="hotspot" style="top: 70%; left: 30%;" onclick="showInfo('Explore the dining area.')"></div>
+        </div>
+        <div id="controls">
+          <button onclick="move('left')">←</button>
+          <button onclick="move('right')">→</button>
+          <button onclick="move('up')">↑</button>
+          <button onclick="move('down')">↓</button>
+          <button onclick="zoomIn()">Zoom In</button>
+          <button onclick="zoomOut()">Zoom Out</button>
+        </div>
+        <div id="info-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+
+    function openModal() {
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    const panorama = document.querySelector('#panorama img');
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+
+    function move(direction) {
+      const step = 5;
+      switch (direction) {
+        case 'left':
+          translateX -= step;
+          break;
+        case 'right':
+          translateX += step;
+          break;
+        case 'up':
+          translateY -= step;
+          break;
+        case 'down':
+          translateY += step;
+          break;
+      }
+      updateTransform();
+    }
+
+    function zoomIn() {
+      scale = Math.min(scale + 0.1, 2); // Limit zoom-in
+      updateTransform();
+    }
+
+    function zoomOut() {
+      scale = Math.max(scale - 0.1, 1); // Limit zoom-out
+      updateTransform();
+    }
+
+    function updateTransform() {
+      panorama.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+    }
+
+    function showInfo(message) {
+      const infoBox = document.querySelector('#info-box');
+      infoBox.textContent = message;
+      infoBox.style.display = 'block';
+      setTimeout(() => {
+        infoBox.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
