@@ -122,6 +122,3 @@ window.onclick = function(event) {
         }
     });
 };
-
-
-
