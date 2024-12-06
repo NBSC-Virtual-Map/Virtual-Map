@@ -3,363 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Tour</title>
+  <title>Card with Modal Gallery</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <style>
-    body {
-  margin: 0;
+  body {
   font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-
-#virtual-tour-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-}
-
-#panorama {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-#panorama img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-.hotspot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid white;
-}
-
-#controls {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
 }
 
-#controls button {
-  padding: 10px 15px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
   cursor: pointer;
-  font-size: 14px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
   border-radius: 5px;
 }
 
-#info-box {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  display: none;
-  text-align: center;
+.modal-buttons button:hover {
+  background-color: #0056b3;
 }
 
 </style>
 <body>
-  <div id="virtual-tour-container">
-    <div id="panorama">
-      <img src="images/NBSC Court .jpg" alt="Virtual Tour">
-      <div class="hotspot" style="top: 40%; left: 60%;" onclick="showInfo('Welcome to the main hall!')"></div>
-      <div class="hotspot" style="top: 70%; left: 30%;" onclick="showInfo('Explore the dining area.')"></div>
-    </div>
-    <div id="controls">
-      <button onclick="move('left')">←</button>
-      <button onclick="move('right')">→</button>
-      <button onclick="move('up')">↑</button>
-      <button onclick="move('down')">↓</button>
-      <button onclick="zoomIn()">Zoom In</button>
-      <button onclick="zoomOut()">Zoom Out</button>
-    </div>
-    <div id="info-box"></div>
+  <div class="card" id="card">
+    <img src="images/CSS.jpg" alt="Building Image" class="card-image">
+    <h3>Building Name</h3>
+    <p>Click to view the gallery</p>
   </div>
-  <script>
 
-const panorama = document.querySelector('#panorama img');
-let scale = 1;
-let translateX = 0;
-let translateY = 0;
-
-function move(direction) {
-  const step = 5;
-  switch (direction) {
-    case 'left':
-      translateX -= step;
-      break;
-    case 'right':
-      translateX += step;
-      break;
-    case 'up':
-      translateY -= step;
-      break;
-    case 'down':
-      translateY += step;
-      break;
-  }
-  updateTransform();
-}
-
-function zoomIn() {
-  scale = Math.min(scale + 0.1, 2); // Limit zoom-in
-  updateTransform();
-}
-
-function zoomOut() {
-  scale = Math.max(scale - 0.1, 1); // Limit zoom-out
-  updateTransform();
-}
-
-function updateTransform() {
-  panorama.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-}
-
-function showInfo(message) {
-  const infoBox = document.querySelector('#info-box');
-  infoBox.textContent = message;
-  infoBox.style.display = 'block';
-  setTimeout(() => {
-    infoBox.style.display = 'none';
-  }, 3000);
-}
-
-  </script>
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Virtual Tour with Modal</title>
-  <style>
-    /* General Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Button to Open Modal */
-    button {
-      padding: 10px 15px;
-      background-color: blue;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin: 20px;
-    }
-
-    /* Virtual Tour Container Styles */
-    #virtual-tour-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-color: #000;
-    }
-
-    #panorama {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    #panorama img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-
-    .hotspot {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid white;
-    }
-
-    #controls {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-
-    #controls button {
-      padding: 10px 15px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      border-radius: 5px;
-    }
-
-    #info-box {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      display: none;
-      text-align: center;
-    }
-
-    /* Modal Styles */
-    #modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #modal-content {
-      position: relative;
-      width: 90%;
-      height: 90%;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    #close-modal {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: red;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Button to Open Modal -->
-  <button onclick="openModal()">Open Virtual Tour</button>
-
-  <!-- Modal -->
-  <div id="modal">
-    <div id="modal-content">
-      <button id="close-modal" onclick="closeModal()">Close</button>
-      <div id="virtual-tour-container">
-        <div id="panorama">
-          <img src="images/NBSC Court .jpg" alt="Virtual Tour">
-          <div class="hotspot" style="top: 40%; left: 60%;" onclick="showInfo('Welcome to the main hall!')"></div>
-          <div class="hotspot" style="top: 70%; left: 30%;" onclick="showInfo('Explore the dining area.')"></div>
-        </div>
-        <div id="controls">
-          <button onclick="move('left')">←</button>
-          <button onclick="move('right')">→</button>
-          <button onclick="move('up')">↑</button>
-          <button onclick="move('down')">↓</button>
-          <button onclick="zoomIn()">Zoom In</button>
-          <button onclick="zoomOut()">Zoom Out</button>
-        </div>
-        <div id="info-box"></div>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" id="close">&times;</span>
+      <img id="gallery-image" src="" alt="Gallery Image">
+      <div class="modal-buttons">
+        <button id="prev">Back</button>
+        <button id="next">Next</button>
       </div>
     </div>
   </div>
 
-  <script>
-    const modal = document.getElementById('modal');
-
-    function openModal() {
-      modal.style.display = 'flex';
-    }
-
-    function closeModal() {
-      modal.style.display = 'none';
-    }
-
-    const panorama = document.querySelector('#panorama img');
-    let scale = 1;
-    let translateX = 0;
-    let translateY = 0;
-
-    function move(direction) {
-      const step = 5;
-      switch (direction) {
-        case 'left':
-          translateX -= step;
-          break;
-        case 'right':
-          translateX += step;
-          break;
-        case 'up':
-          translateY -= step;
-          break;
-        case 'down':
-          translateY += step;
-          break;
+  <script> // Modal and card elements
+    const card = document.getElementById("card");
+    const modal = document.getElementById("modal");
+    const close = document.getElementById("close");
+    const galleryImage = document.getElementById("gallery-image");
+    const nextBtn = document.getElementById("next");
+    const prevBtn = document.getElementById("prev");
+    
+    // Gallery images
+    const images = [
+      "images/Lab1.jpg",
+      "images/LAB2.jpg",
+      "images/CSS .jpg"
+    ];
+    let currentIndex = 0;
+    
+    // Open modal
+    card.addEventListener("click", () => {
+      modal.style.display = "flex";
+      galleryImage.src = images[currentIndex];
+    });
+    
+    // Close modal
+    close.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    
+    // Next button functionality
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      galleryImage.src = images[currentIndex];
+    });
+    
+    // Previous button functionality
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      galleryImage.src = images[currentIndex];
+    });
+    
+    // Close modal when clicking outside of it
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
       }
-      updateTransform();
-    }
-
-    function zoomIn() {
-      scale = Math.min(scale + 0.1, 2); // Limit zoom-in
-      updateTransform();
-    }
-
-    function zoomOut() {
-      scale = Math.max(scale - 0.1, 1); // Limit zoom-out
-      updateTransform();
-    }
-
-    function updateTransform() {
-      panorama.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-    }
-
-    function showInfo(message) {
-      const infoBox = document.querySelector('#info-box');
-      infoBox.textContent = message;
-      infoBox.style.display = 'block';
-      setTimeout(() => {
-        infoBox.style.display = 'none';
-      }, 3000);
-    }
-  </script>
+    });
+    </script>
 </body>
 </html>
+
