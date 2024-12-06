@@ -23,6 +23,43 @@ const galleries = {
     "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
     "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
   ],
+  gallery4: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ],
+  gallery5: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ],
+  gallery6: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ],
+  gallery7: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ],
+  gallery8: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ], gallery9: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ], gallery10: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ], gallery11: [
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
+    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+  ],
 };
 
 let currentGallery = [];
@@ -51,7 +88,7 @@ nextBtn.addEventListener("click", () => {
   galleryImage.src = currentGallery[currentIndex];
 });
 
-// Previous button functionality
+// Previous button functionalitys
 prevBtn.addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
   galleryImage.src = currentGallery[currentIndex];
