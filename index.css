@@ -377,7 +377,7 @@ main {
 }
 
 #map {
-    height: 600px;
+    height: 400px;
 }
 
 
@@ -787,13 +787,13 @@ footer {
 
 .cards-container {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 20px;
     margin-top: 20px;
-    
+
 }
 
 .card {
@@ -869,5 +869,59 @@ footer {
 }
 
 .modal-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.highlight-card {
+    border: 3px solid #456bf5;
+    box-shadow: 0 4px 10px rgba(47, 65, 185, 0.6);
+    background-color: #396dbc;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.search-result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result-card {
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgb(38, 99, 191);
+    background-color: #007bff;
+}
+
+.result-card img {
+    border-radius: 8px;
+}
+
+.result-card h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.result-card p {
+    color:#023e8a;
+    font-size: 14px;
+}
+.search-container{
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+}
+.search-container button{
+    background-color:#023e8a;
+    box-shadow: #004d80;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.search-container button:hover{
     background-color: #0056b3;
 }

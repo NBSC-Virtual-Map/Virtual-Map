@@ -196,111 +196,117 @@
                 <h3>Leaflet Map Basics</h3>
                 <div id="map"></div>
             </div>
-        </section>
 
-        <!--Gallery Section-->
-        <div class="cards-container">
-            <!-- Card 1 -->
-            <div class="card" data-gallery="gallery1">
-                <img src="images/Covered Court.jpg" alt="Building 1" class="card-image">
-                <h3>NBSC COVERED COURT</h3>
-                <p>Click to view the gallery</p>
+            <!--SEARCH BAR-->
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Enter building name..." />
+                <button onclick="searchBuilding()">Search</button>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card" data-gallery="gallery2">
-                <img src="images/TEP.jpg" alt="Building 2" class="card-image">
-                <h3>TEP BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+            <div id="searchResult" class="search-result"></div>
 
-            <!-- Card 3 -->
-            <div class="card" data-gallery="gallery3">
-                <img src="images/CSS.jpg" alt="Building 3" class="card-image">
-                <h3>CSS BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+            <div id="galleryContainer" class="cards-container">
 
+                <!--Gallery Section-->
+                <!-- Card 1 -->
+                <div class="card" data-gallery="gallery1">
+                    <img src="images/Covered Court.jpg" alt="Building 1" class="card-image">
+                    <h3>NBSC COVERED COURT</h3>
+                    <p>Click to view the inside of the court</p>
+                </div>
 
-            <!-- Card 4 -->
-            <div class="card" data-gallery="gallery4">
-                <img src="images/GEC.jpg" alt="Building 4" class="card-image">
-                <h3>GEC BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 2 -->
+                <div class="card" data-gallery="gallery2">
+                    <img src="images/TEP.jpg" alt="Building 2" class="card-image">
+                    <h3>TEP BUILDING</h3>
+                    <p>Click to view the TEP Faculty</p>
+                </div>
 
-
-            <!-- Card 5 -->
-            <div class="card" data-gallery="gallery5">
-                <img src="images/BSBA.jpg" alt="Building 5" class="card-image">
-                <h3>BSBA BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 3 -->
+                <div class="card" data-gallery="gallery3">
+                    <img src="images/CSS.jpg" alt="Building 3" class="card-image">
+                    <h3>CSS BUILDING</h3>
+                    <p>Click to view the CSS Office and Laboratory</p>
+                </div>
 
 
-            <!-- Card 6 -->
-            <div class="card" data-gallery="gallery6">
-                <img src="images/clinic.jpg" alt="Building 6" class="card-image">
-                <h3>NBSC CLINIC</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 4 -->
+                <div class="card" data-gallery="gallery4">
+                    <img src="images/GEC.jpg" alt="Building 4" class="card-image">
+                    <h3>GEC BUILDING</h3>
+                    <p>Click to view the Offices</p>
+                </div>
 
 
-            <!-- Card 7 -->
-            <div class="card" data-gallery="gallery7">
-                <img src="images/lib1.jpg" alt="Building 7" class="card-image">
-                <h3>LIBRARY</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 5 -->
+                <div class="card" data-gallery="gallery5">
+                    <img src="images/BSBA.jpg" alt="Building 5" class="card-image">
+                    <h3>BSBA BUILDING</h3>
+                    <p>Click to view the Office</p>
+                </div>
 
 
-            <!-- Card 8 -->
-            <div class="card" data-gallery="gallery8">
-                <img src="images/SC BUILDING CAM.jpg" alt="Building 8" class="card-image">
-                <h3>STUDENT CENTER BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 6 -->
+                <div class="card" data-gallery="gallery6">
+                    <img src="images/clinic.jpg" alt="Building 6" class="card-image">
+                    <h3>NBSC CLINIC</h3>
+                </div>
 
 
-            <!-- Card 9 -->
-            <div class="card" data-gallery="gallery9">
-                <img src="???" alt="Building 9" class="card-image">
-                <h3>NBSC ADMINISTRATION BUILDING</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 7 -->
+                <div class="card" data-gallery="gallery7">
+                    <img src="images/lib1.jpg" alt="Building 7" class="card-image">
+                    <h3>NBSC LIBRARY</h3>
+                    <p>Click to view the inside of the library</p>
+                </div>
 
 
-            <!-- Card 10 -->
-            <div class="card" data-gallery="gallery10">
-                <img src="images/guard.jpg" alt="Building 10" class="card-image">
-                <h3>NBSC GUARD HOUSE</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 8 -->
+                <div class="card" data-gallery="gallery8">
+                    <img src="images/SC BUILDING CAM.jpg" alt="Building 8" class="card-image">
+                    <h3>STUDENT CENTER BUILDING</h3>
+                    <p>Click to view the Offices</p>
+                </div>
 
 
-            <!-- Card 11 -->
-            <div class="card" data-gallery="gallery11">
-                <img src="images/Supply Office 2.jpg" alt="Building 11" class="card-image">
-                <h3>Supply Office</h3>
-                <p>Click to view the gallery</p>
-            </div>
+                <!-- Card 9 -->
+                <div class="card" data-gallery="gallery9">
+                    <img src="images/462642660_1101126861363075_6908049445146062425_n.jpg" alt="Building 9"
+                        class="card-image">
+                    <h3>NBSC ADMINISTRATION BUILDING</h3>
+                    <p>Click to view the Offices</p>
+                </div>
 
 
-            <div class="modal" id="modal">
-                <div class="modal-content">
-                    <span class="close" id="close">&times;</span>
-                    <img id="gallery-image" src="" alt="Gallery Image">
-                    <div class="modal-buttons">
-                        <button id="prev">Back</button>
-                        <button id="next">Next</button>
+                <!-- Card 10 -->
+                <div class="card" data-gallery="gallery10">
+                    <img src="images/guard.jpg" alt="Building 10" class="card-image">
+                    <h3>NBSC GUARD HOUSE</h3>
+                </div>
+
+
+                <!-- Card 11 -->
+                <div class="card" data-gallery="gallery11">
+                    <img src="images/Supply Office 2.jpg" alt="Building 11" class="card-image">
+                    <h3>SUPPLY OFFICE</h3>
+                </div>
+
+
+                <div class="modal" id="modal">
+                    <div class="modal-content">
+                        <span class="close" id="close">&times;</span>
+                        <img id="gallery-image" src="" alt="Gallery Image">
+                        <div class="modal-buttons">
+                            <button id="prev">Back</button>
+                            <button id="next">Next</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <script src="modal.js"></script>
-
+            <script src="modal.js"></script>
+        </section>
 
         <!--About Section-->
         <section class="about" id="about">

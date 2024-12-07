@@ -3,19 +3,19 @@
         "latitude": 8.359582,
         "longitude":124.869151,
         "imageUrl": "images/CSS.jpg",  
-        "text": "IT Department"
+        "text": "CSS BUILDING"
     },
     {
         "latitude": 8.359210,
         "longitude": 124.869083,
         "imageUrl": "images/GEC.jpg",
-        "text": "GEC Building"
+        "text": "GEC BUILDING"
     },
     {
         "latitude": 8.359899,
         "longitude": 124.869266,
         "imageUrl": "images/TEP.jpg",
-        "text": "TEP Department"
+        "text": "TEP BUILDING"
     },
     {
         "latitude": 8.359159,
@@ -27,51 +27,52 @@
         "latitude": 8.359286,
         "longitude": 124.867861,
         "imageUrl": "images/lib1.jpg",
-        "text": "NBSC Library"
+        "text": "NBSC LIBRARY"
     },
     {
         "latitude": 8.360063,
         "longitude": 124.868901,
         "imageUrl": "images/Covered Court.jpg",
-        "text": "NBSC Covered Court"
+        "text": "NBSC COVERED COURT"
     },
     
     {
         "latitude": 8.360281,
         "longitude": 124.867519,
         "imageUrl": "images/sc.jpg",
-        "text": "Student Center Building"
+        "text": "STUDENT CENTER BUILDING"
     },
 
     {
         "latitude": 8.359180,
         "longitude": 124.868211,
         "imageUrl": "images/clinic.jpg",
-        "text": "NBSC Clinic"
+        "text": "NBSC CLINIC"
     },
     
     {
         "latitude": 8.361224,
         "longitude": 124.867628,
         "imageUrl": "images/guard.jpg",
-        "text": "NBSC Guard House"
+        "text": "NBSC GUARD HOUSE"
     },
     
-
-
     {
         "latitude": 8.360764,
         "longitude": 124.869401,
-        "imageUrl": "https://example.com/another-image.jpg",
-        "text": "NBSC Cashier Office"
+        "imageUrl": "images/462642660_1101126861363075_6908049445146062425_n.jpg",
+        "text": "NBSC ADMINISTRATION BUILDING"
     },
-    
-
     {
         "latitude": 8.360221,
         "longitude": 124.868176,
         "imageUrl": "images/FIELD.jpg",
         "text": "NBSC FIELD"
+    },
+    {
+        "latitude": 8.359649,
+        "longitude": 124.868949,
+        "imageUrl": "images/Supply Office 2.jpg",
+        "text": "SUPPLY OFFICE"
     }
-    
 ]

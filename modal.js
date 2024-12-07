@@ -9,56 +9,50 @@ const prevBtn = document.getElementById("prev");
 // Gallery data for each card
 const galleries = {
   gallery1: [
-    "https://via.placeholder.com/500x300?text=Gallery+1+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+1+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+1+Image+3",
+    "images/insideCourt.jpg"
   ],
   gallery2: [
-    "https://via.placeholder.com/500x300?text=Gallery+2+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+2+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+2+Image+3",
+    "images/TEP OFFICE.jpg",
   ],
   gallery3: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/CSS FACULTY.jpg",
+    "images/Lab1.jpg",
+    "images/LAB2.jpg",
   ],
   gallery4: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/GEC FACULTY.jpg",
+    "images/GEC Admin.jpg",
+
   ],
   gallery5: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/BSBAOFFICES.jfif",
   ],
   gallery6: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/PHOTO NOT AVAILABLE.jfif",
   ],
   gallery7: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/lib01.jpg",
+    "images/lib2.jpg",
+    "images/lib3.jpg",
   ],
   gallery8: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
-  ], gallery9: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
-  ], gallery10: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
-  ], gallery11: [
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+1",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+2",
-    "https://via.placeholder.com/500x300?text=Gallery+3+Image+3",
+    "images/SCOFFICES.jfif",
+    "images/SCOFFICES1.jfif",
+    "images/SCOFFICE3.jfif",
+    "images/SCOFFICE2.jfif",
+    "images/SCOFFICES4.jfif",
+    "images/SCOFFICES5.jfif",
+  ], 
+  gallery9: [
+    "images/BILLING1.jfif",
+    "images/BILLING2.jfif",
+    "images/BILLING3.jfif",
+  ],
+   gallery10: [
+    "images/PHOTO NOT AVAILABLE.jfif",
+  ],
+   gallery11: [
+    "images/PHOTO NOT AVAILABLE.jfif",
   ],
 };
 

@@ -114,7 +114,7 @@ function closeModal(modalId) {
 }
 
 // Close the modal when clicking outside of it
-window.onclick = function(event) {
+window.onclick = function (event) {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
         if (event.target === modal) {
@@ -122,3 +122,56 @@ window.onclick = function(event) {
         }
     });
 };
+
+//FUNCTION SEARCH BAR
+function searchBuilding() {
+    const searchQuery = document.getElementById('searchBar').value.trim().toLowerCase();
+    const searchResultContainer = document.getElementById('searchResult');
+    const allCards = document.querySelectorAll('.card');
+
+    // Clear previous results
+    searchResultContainer.innerHTML = "";
+    allCards.forEach(card => card.classList.remove('highlight-card'));
+
+    fetch('map.json')
+        .then(response => response.json())
+        .then(data => {
+            const building = data.find(item => item.text.toLowerCase().includes(searchQuery));
+
+            if (building) {
+                // Remove previous markers
+                myMap.map.eachLayer(layer => {
+                    if (layer instanceof L.Marker) {
+                        myMap.map.removeLayer(layer);
+                    }
+                });
+
+                // Add marker and center map
+                const popupContent = myMap.createPopupContent(building);
+                myMap.addMarker(building.latitude, building.longitude, popupContent);
+                myMap.map.setView([building.latitude, building.longitude], 18);
+
+                // Highlight matching card
+                const matchingCard = Array.from(allCards).find(card =>
+                    card.querySelector('h3').innerText.toLowerCase() === building.text.toLowerCase()
+                );
+
+                if (matchingCard) {
+                    matchingCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                    matchingCard.classList.add('highlight-card');
+
+                    // Display search result
+                    searchResultContainer.innerHTML = `
+                        <div class="result-card">
+                            <img src="${building.imageUrl}" alt="${building.text}" style="width:100%; max-height:200px; object-fit:cover;">
+                            <h4>${building.text}</h4>
+                            <p>Latitude: ${building.latitude}, Longitude: ${building.longitude}</p>
+                        </div>
+                    `;
+                }
+            } else {
+                alert("Building not found!");
+            }
+        })
+        .catch(error => console.error('Error loading buildings:', error));
+}
